@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://ingrauleduardop.com/demo/soap-ws/model/debitCards" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ingrauleduardop.com/demo/soap-ws/model/debitCards" targetNamespace="http://ingrauleduardop.com/demo/soap-ws/model/debitCards">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ingrauleduardop.com/demo/soap-ws/model/debitCards">
+
+	<xs:element name="getDebitCardRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="numero_tarjeta" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getDebitCardResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="debitCard" type="tns:debitCard"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="debitCard">
+		<xs:sequence>
+			<xs:element name="numero_tarjeta" type="xs:string"/>
+			<xs:element name="tipo_usuario" type="xs:string"/>
+			<xs:element name="codigo_estado" type="xs:string"/>
+			<xs:element name="codigo_bloqueo" type="xs:string"/>
+			<xs:element name="nombre_bloqueo" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getDebitCardResponse">
+    <wsdl:part element="tns:getDebitCardResponse" name="getDebitCardResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDebitCardRequest">
+    <wsdl:part element="tns:getDebitCardRequest" name="getDebitCardRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DebitCardsPort">
+    <wsdl:operation name="getDebitCard">
+      <wsdl:input message="tns:getDebitCardRequest" name="getDebitCardRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getDebitCardResponse" name="getDebitCardResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DebitCardsPortSoap11" type="tns:DebitCardsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDebitCard">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getDebitCardRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDebitCardResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DebitCardsPortService">
+    <wsdl:port binding="tns:DebitCardsPortSoap11" name="DebitCardsPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

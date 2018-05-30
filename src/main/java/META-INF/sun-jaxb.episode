@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
+Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2018.05.30 a las 09:58:04 AM GMT-04:00 
+
+  -->
+  <bindings xmlns:tns="http://ingrauleduardop.com/demo/soap-ws/model/debitCards" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="com.ingrauleduardop.demo.soap_ws.model.debitcards"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:getDebitCardRequest">
+      <class ref="com.ingrauleduardop.demo.soap_ws.model.debitcards.GetDebitCardRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getDebitCardResponse">
+      <class ref="com.ingrauleduardop.demo.soap_ws.model.debitcards.GetDebitCardResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:debitCard">
+      <class ref="com.ingrauleduardop.demo.soap_ws.model.debitcards.DebitCard"/>
+    </bindings>
+  </bindings>
+</bindings>
